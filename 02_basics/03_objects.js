@@ -5,10 +5,10 @@
 // & the only difference is that with Singleton single instance of an object is created, while with Literal multiple instances of objects are created
 
 // Singleton:
-// Object.create
+//const user = new Object()     => {} This is Singleton object
 
 // Literal:
-// {}
+// const user = {}              => {} This is Non-Singleton object
 
 const mySym = Symbol("Key1")
 
