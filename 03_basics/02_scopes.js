@@ -8,7 +8,10 @@ console.log(c);
 
 // Global scope can be accessed throughout the file
 // A bolck scope can be accessed onnly with that block
-// Browser's console core scope is different than code environment's Global scope
+// Browser's console core scope is different than code environment's Global scope 
+// Browser's console core scope/global object is Windows Object
+// Code Environment's global object/scope is Empty Object i.e,{}
+
 
 function one(){
     const userName = "Uzair"
