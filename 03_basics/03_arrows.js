@@ -25,6 +25,7 @@ function chai1(){} // normal function
 const chai2 = function(){} // expression
 
 const chai3 = () => {} // arrow function
+const chai4 = () =>    // arrow function
 
 
 function chai4() {       // normal function

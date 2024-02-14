@@ -21,6 +21,11 @@ for (const greets of greetings2) {
 // Map is an object and is the collection of unique key-value pairs that also remembers the original insertion order
 // We cannot iterate on Maps with 'for in'
 // but we can iterate on Maps with 'for of'
+// Map is also a callback funtion that has 3 parameter i.e, value, index, & array
+// Map is a callback function & so doesn't require a name of the function
+// Callback: Muje aik function dedo ke muje karna kya h. For eg, () <-This is a callback & it is used to access individual items of array & for that we need to give it a name such as (item) <-This is callback name
+// Map has a callback function where in we can accees individual values of an array
+// Map can return values like filter, unlike foraEach
 
 const map = new Map()                    
 map.set("IN", "India")
@@ -35,7 +40,7 @@ for (const key of map) {
 
 for (const [key, value] of map) {
  console.log(`${key} - ${value}`);   
-}
+}  
 
 // =-=-=-=-=-=-=-= Iterating on Objects =-=-=-=-=-=-=-= 
 
@@ -75,7 +80,10 @@ for (const key in myArr) {
 
 // forEach is a callback funtion that has 3 parameter i.e, value, index, & array
 // forEach is a callback function & so doesn't require a name of the function
-// Callback: Muje aik function dedo ke muje karna kya h
+// Callback: Muje aik function dedo ke muje karna kya h. For eg, () <-This is a callback & it is used to access individual items of array & for that we need to give it a name such as (item) <-This is callback name
+// forEach has a callback function where in we can accees individual values of an array
+// forEach can't returns anythings, for that case we use filter() which is also a callback function
+// but still we can get the same result as filter, by applying a condition based on which we'll get a result & that result we can push into a empty array. (Check monthsArr1 & monthsArr2 example below)
 
 
 const myArr2 = ["Kotlin", "Javascrip", "Swift", "Dart"]
@@ -96,6 +104,15 @@ function printMe(item) {
 }
 myArr2.forEach(printMe)                  // forEach with the reference of a function
 
+
+const monthsArr1 = []
+const monthsArr2 = [1,2,3,4,5,6,7,8,9,10,11,12]
+monthsArr2.forEach( (month) => {
+    if(month > 4){
+        monthsArr1.push(month)
+    }
+})
+console.log(monthsArr1);
 
 // =-=-=-=-=-=-=-= 'Most commmon Operation' =-=-=-=-=-=-=-= 
 
