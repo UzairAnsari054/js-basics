@@ -1,3 +1,5 @@
+// '' & "" both represents strings
+
 let name = "Uzair-An"
 let age = 25
 
