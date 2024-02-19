@@ -6,38 +6,49 @@
     <title>Document</title>
 </head>
 <body style="background-color: #212121; color: #fff;">
-    <ul class="language"></ul>
-    <li>Javascript</li>
+    <ul class="languageClass">
+        <li>Javascript</li>
+    </ul>
 </body>
 <script>
-    function addItem(langName) {
-    const li = document.createElement('li')
-    li.innerHTML = langName
-    document.querySelector('.language').appendChild(li)
-    }
-    addItem("C++")
-    addItem("Kotlin")
 
-    function addOptiLang(langName) {
-        const li = document.createElement('li')
-        li.appendChild(document.createTextNode(langName))
-        document.querySelector('.language').appendChild(li)
-    
-    }
-    addOptiLang("Golang")
+    const language = document.querySelector('.languageClass') // => accessed the class
+    const listItem = document.createElement('li')  // => created new element of type li
+    listItem.innerText = "C++"  // => updated the empty li element with a value
+    language.appendChild(listItem) // => attached the li element(that has value) with accessed class
 
-    //Edit
+    function addLang(lang) {
+        const liItem = document.createElement('li') 
+        liItem.innerHTML = lang
+        document.querySelector('.languageClass').appendChild(liItem)
+    }
+    addLang("KOTLIN")
+    addLang("SWIFT")
+    addLang("GOLANG")
+
+    // Optimised way
+    function addLang2(lang) {
+        const liItem = document.createElement('li')
+        liItem.append(document.createTextNode(lang)) // => inside list element created a text node within which added the language
+        document.querySelector('.languageClass').appendChild(liItem)
+    }
+    addLang2("Hindi")
+    addLang2("Marathi")
+    addLang2("Urdu")
+
+    // Edit
     const secondLang = document.querySelector("li:nth-child(2)")
-    const newLi = document.createElement('li')
-    newLi.textContent = "Mojo"
-    secondLang.replaceWith(newLi)
+    const newLang = document.createElement('li')
+    newLang.textContent = "C#"
+    secondLang.replaceWith(newLang)
 
-    //Edit
+    // Edit
     const firstLang = document.querySelector("li:first-child")
-    firstLang.outerHTML = '<li>TzypeScript</>'
-    
-        //remove
-        const lastLang = document.querySelector('li:last-child')
-        lastLang.remove()
-    </script>
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    // Remmove
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+
+</script>
 </html>

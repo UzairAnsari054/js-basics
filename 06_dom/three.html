@@ -6,20 +6,23 @@
     <title>Document</title>
 </head>
 <body style="background-color: #212121; color: #fff;">
-    
-</body>
-<script>
-    const div = document.createElement('div')
-    console.log(div);
-    div.className = "main"
-    div.id = Math.round(Math.random() * 10 + 1)
-    div.setAttribute("title", "generate title")
-    div.style.backgroundColor = "green"
-    div.style.padding = "12px"
-    div.innerText = "I am coding"
-    const addText = document.createTextNode(" AABCD")
-    div.appendChild(addText)
+    <script>
+        const div = document.createElement('div')
+        console.log(div);
+        div.id = "myId"
+        div.className= "main"
+        div.setAttribute("title", "title101")
+        div.style.backgroundColor = "green"
+        div.style.padding= "15px"
 
-    document.body.appendChild(div)
+        // 1st way
+        div.innerHTML = "This is Dom learning"
+
+        // 2nd way
+        const addText = document.createTextNode("DOMMM")
+        div.appendChild(addText)
+
+        document.body.appendChild(div)
     </script>
+</body>
 </html>
