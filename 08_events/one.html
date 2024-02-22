@@ -1,0 +1,79 @@
+<!-- Js is a sequentially run language but in some cases we do use asynchrounous programming
+In Js all events run sequentially but their are some exceptions one of which is Browser's Events (eventListener)
+because Browser's Events are invoked on some activity like, mouse moments/clicks, keybord clicks, etc -->
+<!-- Also every eventListener gives you an eventObject that contain all details about the event, like (clickedTime, clickedLocation, etc...)
+Some events from eventObject to study,
+1. type
+2. timestamp
+3. defaultPrevented
+4. target
+5. toElement
+6. srcElement
+7. currentTarget 
+8. clicentX, clicentY
+9. screenX, screenY
+10. altkey, ctrlKey, swiftKey, keyCode(A key, B key)-keybordSpeed of specific keys
+
+
+instead of onClick events use event listeners because event listeners not only provides click functionality but also gives you propogation ability
+Event Propogation: Event Propogation has 2 context,
+Contex 1: Event Bubling, i,e deafult & i.e false by default as the 3rd paramenter of eventListeners
+Bubling goes from inside to outward, that means the current inner most element will be given 1st priority then the outer elements will be given decrementing priorities
+Contex 2: Event Capturing, i.e true as the 3rd paramenter of eventListeners
+Capturing goes from outside to inside, that means the current outer most element will be given 1st priority then the inner elements will be given decrementing priorities
+stopPropogation(): when you dont want to propogate next element use stopPropogation() on the eventObject like e.stopPropogation() -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+   </body>
+   <script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert('owl clicked')
+    // }
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     alert('owl clicked again')
+    // }, true)
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     alert('clicked inside the ul')
+    //     e.stopPropagation()
+    // }, true)
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()
+    // }, false) // this isn't working, don't know why
+
+    // write a program to remove the image item which gets clicked
+
+    document.getElementById('images').addEventListener('click',function(e){
+        // e // => contains information about the event, such as the type of event, target element, mouse coordinates. 
+        // e // => contains information about the target element that triggered the event. (in this case, an Image)
+        // e // => contains information about the parent node of the target element. (in this case, the entire listItem of the Image)
+        // e // => contains information about the parent node of the target parent element. (in this case, the ul that contains the listItems)
+        
+        if(e.target.tagName === 'IMG'){
+            let toRemove = e.target.parentNode
+            toRemove.parentNode.removeChild(toRemove)
+        }
+    },false)
+
+   </script>
