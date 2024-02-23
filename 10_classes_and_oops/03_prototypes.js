@@ -1,7 +1,3 @@
-let myName = "Uzair    "
-console.log(myName.length)
-
-
 let myHeros = ["thor", "spiderman"]
 
 let heroPower = {
